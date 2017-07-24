@@ -60,7 +60,7 @@ def main(regexp)
       cc = Integer(c)
 
       begin
-        d = cc.chr(Encoding::EUC_JIS_2004)
+        d = cc.chr(Encoding::EUC_JIS_2004) # @raise RangeError
         dd = d.force_encoding(Encoding::EUC_JP)
         p regexp.match(dd)
       rescue RangeError => err
